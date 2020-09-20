@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import * as React from "react";
 import { StyleSheet, View } from "react-native";
 import { Elevation, ElevationProps } from "../Elevation/Elevation";
 
@@ -10,7 +10,7 @@ export function Paper({
   borderRadius,
   ...props
 }: PaperProps) {
-  const { root } = useMemo(
+  const { root } = React.useMemo(
     () =>
       StyleSheet.create({
         root: {},

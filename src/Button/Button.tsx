@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from "react";
+import * as React from "react";
 import {
   TouchableHighlight,
   TouchableHighlightProps,
@@ -9,7 +9,7 @@ import {
 export function Button({
   children,
   ...props
-}: PropsWithChildren<TouchableHighlightProps>) {
+}: React.PropsWithChildren<TouchableHighlightProps>) {
   return (
     <TouchableHighlight {...props}>
       <View>

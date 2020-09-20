@@ -1,10 +1,10 @@
-import React, { PropsWithChildren, useMemo } from "react";
+import * as React from "react";
 import { StyleSheet, View, ViewProps } from "react-native";
 import { LightThemeColors } from "../Colors";
 import { elevationBase } from "../Elevation/elevationBase";
 
 export interface ElevationProps
-  extends Omit<PropsWithChildren<ViewProps>, "style"> {
+  extends Omit<React.PropsWithChildren<ViewProps>, "style"> {
   elevation?: "ground" | "low" | "medium" | "high";
   borderRadius?: 4 | 6 | 8;
 }
@@ -14,7 +14,7 @@ export function Elevation({
   elevation,
   children,
 }: ElevationProps) {
-  const { root } = useMemo(
+  const { root } = React.useMemo(
     () =>
       StyleSheet.create({
         root: { borderRadius, backgroundColor: LightThemeColors.white[100] },
