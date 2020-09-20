@@ -1,6 +1,22 @@
 import { useColorScheme } from "react-native";
 
-export const LightThemeColors = {
+type ColorName = "blue" | "dark" | "red" | "white";
+
+interface ColorShade {
+  [50]: string;
+  [75]: string;
+  [80]: string;
+  [100]: string;
+  [200]: string;
+  [250]: string;
+  [300]: string;
+  [400]: string;
+  [500]: string;
+}
+
+type Palette = Record<ColorName, Partial<ColorShade>>;
+
+export const LightThemeColors: Palette = {
   blue: {
     [50]: "#DEEBFF",
     [75]: "#B2D4FF",
@@ -33,7 +49,7 @@ export const LightThemeColors = {
   },
 };
 
-export const DarkThemeColors = {
+export const DarkThemeColors: Palette = {
   blue: {
     [50]: "#DEEBFF",
     [75]: "#B2D4FF",

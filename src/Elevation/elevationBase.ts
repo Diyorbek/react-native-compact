@@ -1,7 +1,19 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, ViewStyle } from "react-native";
 import { LightThemeColors } from "../Colors";
 
-export const elevationBase = {
+interface ElevationStyle {
+  inner: ViewStyle;
+  outer: ViewStyle;
+}
+
+interface ElevationBase {
+  [0]: ElevationStyle;
+  [1]: ElevationStyle;
+  [3]: ElevationStyle;
+  [5]: ElevationStyle;
+}
+
+export const elevationBase: ElevationBase = {
   [0]: StyleSheet.create({
     inner: {
       borderWidth: 1,

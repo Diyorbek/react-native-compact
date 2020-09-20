@@ -1,6 +1,6 @@
 import React from "react";
 import { Text, View } from "react-native";
-import { Box } from "../StoryBookUtility";
+import { Box } from "../../storybook/StoryBookUtility";
 import { Paper } from "./Paper";
 
 const Wrapper = (props: any) => (
