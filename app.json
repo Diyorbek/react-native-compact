@@ -1,0 +1,12 @@
+{
+  "name": "react-native-compact",
+  "displayName": "react-native-compact",
+  "expo": {
+    "name": "react-native-compact",
+    "slug": "react-native-compact",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
