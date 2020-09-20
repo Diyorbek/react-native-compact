@@ -2,7 +2,7 @@ import React from "react";
 import { View } from "react-native";
 import { Button } from "./Button";
 
-export function ButtonStories() {
+export default function ButtonStories() {
   return (
     <View
       style={{
