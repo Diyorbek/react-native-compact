@@ -1,5 +1,5 @@
 import { StackScreenProps } from "@react-navigation/stack";
-import React from "react";
+import React, { useEffect } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 import { LightThemeColors } from "../src/Colors";
@@ -30,7 +30,7 @@ export function StoriesHome({
         {componentsList.map(({ label, routeName }) => (
           <TouchableOpacity
             key={routeName}
-            onPress={() => navigation.push(routeName)}
+            onPress={() => navigation.navigate(routeName)}
           >
             <View style={styles.listItem}>
               <Text style={styles.listItemText}>{label}</Text>

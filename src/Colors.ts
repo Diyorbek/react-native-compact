@@ -29,6 +29,7 @@ export const LightThemeColors = {
   },
   white: {
     [80]: "#FFFFFFCC",
+    [100]: "#FFFFFF",
   },
 };
 
@@ -61,6 +62,7 @@ export const DarkThemeColors = {
   },
   white: {
     [80]: "#FFFFFFCC",
+    [100]: "#FFFFFF",
   },
 };
 
