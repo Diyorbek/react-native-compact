@@ -3,13 +3,13 @@
   "version": "0.0.1",
   "description": "Library of compact components for React Native",
   "license": "MIT",
-  "private": false,
+  "private": true,
   "main": "index.js",
-  "files": [
-    "dist",
-    "assets"
+  "workspaces": [
+    "lib"
   ],
   "scripts": {
+    "release": "cd lib && yarn publish",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "web": "expo start --web",
