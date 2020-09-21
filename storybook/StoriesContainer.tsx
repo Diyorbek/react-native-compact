@@ -1,9 +1,9 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { StoriesHome } from "./StoriesHome";
-import ButtonStories from "../src/Button/Button.stories";
+import ButtonStories from "../lib/src/Button/Button.stories";
 import { Stack } from "./navigation";
-import PaperStories from "../src/Paper/Paper.stories";
+import PaperStories from "../lib/src/Paper/Paper.stories";
 
 export function StoriesContainer() {
   return (

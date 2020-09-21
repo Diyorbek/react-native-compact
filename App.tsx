@@ -1,5 +1,5 @@
 import React from "react";
-import { StoriesContainer } from "./stories/StoriesContainer";
+import { StoriesContainer } from "./storybook/StoriesContainer";
 
 export default function App() {
   return <StoriesContainer />;

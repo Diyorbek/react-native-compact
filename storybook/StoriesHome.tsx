@@ -1,8 +1,13 @@
 import { StackScreenProps } from "@react-navigation/stack";
 import React, { useEffect } from "react";
-import { StyleSheet, Text, View } from "react-native";
-import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
-import { LightThemeColors } from "../src/Colors";
+import {
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import { LightThemeColors } from "../lib/src/Colors";
 import { RootStackParamList, StoryComponentName } from "./navigation";
 
 interface ComponentsList {

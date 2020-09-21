@@ -1,0 +1,23 @@
+{
+  "name": "react-native-compac",
+  "version": "0.0.2",
+  "main": "dist/index.js",
+  "author": "Diyorbek Sadullaev",
+  "license": "MIT",
+  "private": false,
+  "files": [
+    "dist",
+    "assets"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "postversion": "yarn publish",
+    "prepublishOnly": "yarn build"
+  },
+  "peerDependencies": {
+    "expo": "^38.0.10",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
+    "react-native": "^0.62.2"
+  }
+}
