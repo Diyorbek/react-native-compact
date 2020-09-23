@@ -1,7 +1,7 @@
 import * as React from "react";
 import { StyleSheet, View, ViewProps } from "react-native";
-import { LightThemeColors } from "../Colors";
-import { elevationBase } from "../Elevation/elevationBase";
+import { Colors } from "../Colors";
+import { elevationBase } from "./elevationBase";
 
 export interface ElevationProps
   extends Omit<React.PropsWithChildren<ViewProps>, "style"> {
@@ -17,7 +17,7 @@ export function Elevation({
   const { root } = React.useMemo(
     () =>
       StyleSheet.create({
-        root: { borderRadius, backgroundColor: LightThemeColors.white[100] },
+        root: { borderRadius, backgroundColor: Colors.Light.white[100] },
       }),
     [borderRadius]
   );

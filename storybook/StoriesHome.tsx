@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native";
 import { StackScreenProps } from "@react-navigation/stack";
 import React, { useEffect } from "react";
 import {
@@ -7,8 +8,9 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import { LightThemeColors } from "../lib/src/Colors";
+import { Colors } from "../lib/src/Colors";
 import { RootStackParamList, StoryComponentName } from "./navigation";
+import { useOpenStory } from "./StoryBookUtility";
 
 interface ComponentsList {
   label: string;
@@ -24,11 +26,16 @@ const componentsList: ComponentsList[] = [
     routeName: "Paper",
     label: "Paper",
   },
+  {
+    routeName: "Typography",
+    label: "Typography",
+  },
 ];
 
 export function StoriesHome({
   navigation,
 }: StackScreenProps<RootStackParamList, "Home">) {
+  useOpenStory("Typography");
   return (
     <View style={styles.container}>
       <ScrollView>
@@ -53,7 +60,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
   },
   listItem: {
-    borderBottomColor: LightThemeColors.dark[100],
+    borderBottomColor: Colors.Light.dark[100],
     borderBottomWidth: 1,
     paddingVertical: 8,
     paddingHorizontal: 12,

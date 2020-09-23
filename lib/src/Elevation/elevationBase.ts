@@ -1,28 +1,25 @@
 import { StyleSheet, ViewStyle } from "react-native";
-import { LightThemeColors } from "../Colors";
+import { Colors } from "../Colors";
 
 interface ElevationStyle {
   inner: ViewStyle;
   outer: ViewStyle;
 }
 
-interface ElevationBase {
-  [0]: ElevationStyle;
-  [1]: ElevationStyle;
-  [3]: ElevationStyle;
-  [5]: ElevationStyle;
-}
+type ElevationLevel = 0 | 1 | 3 | 5;
+
+type ElevationBase = Record<ElevationLevel, ElevationStyle>;
 
 export const elevationBase: ElevationBase = {
-  [0]: StyleSheet.create({
+  [0]: StyleSheet.create<ElevationStyle>({
     inner: {
       borderWidth: 1,
       borderRadius: 4,
-      borderColor: LightThemeColors.dark[500],
+      borderColor: Colors.Light.dark[500],
     },
     outer: {},
   }),
-  [1]: StyleSheet.create({
+  [1]: StyleSheet.create<ElevationStyle>({
     inner: {
       shadowColor: "#000",
       shadowOffset: {
@@ -40,7 +37,7 @@ export const elevationBase: ElevationBase = {
       elevation: 4,
     },
   }),
-  [3]: StyleSheet.create({
+  [3]: StyleSheet.create<ElevationStyle>({
     inner: {
       shadowColor: "#000",
       shadowOffset: {
@@ -62,7 +59,7 @@ export const elevationBase: ElevationBase = {
       elevation: 8,
     },
   }),
-  [5]: StyleSheet.create({
+  [5]: StyleSheet.create<ElevationStyle>({
     inner: {
       shadowColor: "#000",
       shadowOffset: {

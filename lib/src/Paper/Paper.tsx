@@ -1,6 +1,6 @@
 import * as React from "react";
 import { StyleSheet, View } from "react-native";
-import { Elevation, ElevationProps } from "../Elevation/Elevation";
+import { Elevation, ElevationProps } from "../elevation/Elevation";
 
 interface PaperProps extends ElevationProps {}
 

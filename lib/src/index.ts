@@ -1,3 +1,3 @@
-export { Button } from "./Button/Button";
-export { Paper } from "./Paper/Paper";
+export { Button } from "./button/Button";
+export { Paper } from "./paper/Paper";
 export * from "./Colors";

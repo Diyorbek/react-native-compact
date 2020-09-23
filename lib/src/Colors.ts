@@ -1,22 +1,22 @@
-import { useColorScheme } from "react-native";
+import { useColorSchemeToggle } from "./utils";
 
 type ColorName = "blue" | "dark" | "red" | "white";
 
 interface ColorShade {
-  [50]: string;
-  [75]: string;
-  [80]: string;
-  [100]: string;
-  [200]: string;
-  [250]: string;
-  [300]: string;
-  [400]: string;
-  [500]: string;
+  [50]?: string;
+  [75]?: string;
+  [80]?: string;
+  [100]?: string;
+  [200]?: string;
+  [250]?: string;
+  [300]?: string;
+  [400]?: string;
+  [500]?: string;
 }
 
-type Palette = Record<ColorName, Partial<ColorShade>>;
+type Palette = Record<ColorName, ColorShade>;
 
-export const LightThemeColors: Palette = {
+const LightThemeColors: Palette = {
   blue: {
     [50]: "#DEEBFF",
     [75]: "#B2D4FF",
@@ -49,7 +49,8 @@ export const LightThemeColors: Palette = {
   },
 };
 
-export const DarkThemeColors: Palette = {
+// TODO: Set proper colors
+const DarkThemeColors: Palette = {
   blue: {
     [50]: "#DEEBFF",
     [75]: "#B2D4FF",
@@ -82,12 +83,21 @@ export const DarkThemeColors: Palette = {
   },
 };
 
-export function useColors() {
-  const colorScheme = useColorScheme();
+export const Colors = {
+  Dark: DarkThemeColors,
+  Light: LightThemeColors,
+};
 
-  if (!colorScheme) {
+export function useColors(
+  options = {
+    toggleColorScheme: false,
+  }
+) {
+  const colorScheme = useColorSchemeToggle(LightThemeColors, DarkThemeColors);
+
+  if (!options.toggleColorScheme) {
     return LightThemeColors;
   }
 
-  return colorScheme === "light" ? LightThemeColors : DarkThemeColors;
+  return colorScheme;
 }
