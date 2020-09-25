@@ -2,9 +2,9 @@ import { StyleSheet, TextStyle } from "react-native";
 import { loadAsync } from "expo-font";
 
 loadAsync({
-  MontserratBold: require("../../assets/Montserrat-Bold.ttf"),
-  MontserratRegular: require("../../assets/Montserrat-Regular.ttf"),
-  MontserratSemiBold: require("../../assets/Montserrat-SemiBold.ttf"),
+  "Montserrat-Bold": require("../../assets/Montserrat-Bold.ttf"),
+  "Montserrat-Regular": require("../../assets/Montserrat-Regular.ttf"),
+  "Montserrat-SemiBold": require("../../assets/Montserrat-SemiBold.ttf"),
 });
 
 export type FontWeightVariant = "bold" | "semiBold" | "regular";
@@ -12,13 +12,13 @@ type FontFamilyWeight = Record<FontWeightVariant, TextStyle>;
 
 const Montserrat = StyleSheet.create<FontFamilyWeight>({
   bold: {
-    fontFamily: "MontserratBold",
+    fontFamily: "Montserrat-Bold",
   },
   semiBold: {
-    fontFamily: "MontserratSemiBold",
+    fontFamily: "Montserrat-SemiBold",
   },
   regular: {
-    fontFamily: "MontserratRegular",
+    fontFamily: "Montserrat-Regular",
   },
 });
 
