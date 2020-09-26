@@ -5,16 +5,7 @@ loadAsync({
   "Montserrat-Bold": require("../../assets/Montserrat-Bold.ttf"),
   "Montserrat-Regular": require("../../assets/Montserrat-Regular.ttf"),
   "Montserrat-SemiBold": require("../../assets/Montserrat-SemiBold.ttf"),
-}).then(
-  (res) => {
-    console.log("Fonts loaded");
-    console.log(res);
-  },
-  (err) => {
-    console.log("Error loading font");
-    console.log(err);
-  }
-);
+});
 
 export type FontWeightVariant = "bold" | "semiBold" | "regular";
 type FontFamilyWeight = Record<FontWeightVariant, TextStyle>;
