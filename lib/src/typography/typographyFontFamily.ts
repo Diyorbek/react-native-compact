@@ -1,10 +1,15 @@
 import { StyleSheet, TextStyle } from "react-native";
 import { loadAsync } from "expo-font";
+import {
+  Montserrat_400Regular,
+  Montserrat_600SemiBold,
+  Montserrat_700Bold,
+} from "@expo-google-fonts/montserrat";
 
 loadAsync({
-  "Montserrat-Bold": require("../../assets/Montserrat-Bold.ttf"),
-  "Montserrat-Regular": require("../../assets/Montserrat-Regular.ttf"),
-  "Montserrat-SemiBold": require("../../assets/Montserrat-SemiBold.ttf"),
+  "Montserrat-Bold": Montserrat_700Bold,
+  "Montserrat-Regular": Montserrat_400Regular,
+  "Montserrat-SemiBold": Montserrat_600SemiBold,
 });
 
 export type FontWeightVariant = "bold" | "semiBold" | "regular";
