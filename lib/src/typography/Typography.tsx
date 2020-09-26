@@ -5,6 +5,7 @@ import {
   fontFamilyStyles,
   FontFamilyVariant,
   FontWeightVariant,
+  useLoadFonts,
 } from "./typographyFontFamily";
 import { TypographyColor, useTypographyColors } from "./typographyColors";
 
@@ -21,6 +22,7 @@ export function useTypographyStyles({
   fontFamily = "montserrat",
   fontWeight,
 }: UseTypographyStylesProps): TextStyle {
+  const isFontsLoaded = useLoadFonts();
   const colors = useTypographyColors();
   const defaultFontWeight: FontWeightVariant = React.useMemo(
     () =>
@@ -29,16 +31,23 @@ export function useTypographyStyles({
         : "regular",
     [variant]
   );
+  const fontStyles = React.useMemo(() => {
+    if (isFontsLoaded) {
+      return fontFamilyStyles[fontFamily][fontWeight || defaultFontWeight];
+    }
+
+    return {};
+  }, [defaultFontWeight, fontFamily, fontWeight, isFontsLoaded]);
 
   return React.useMemo(() => {
     const styles = StyleSheet.flatten([
       typographyStyles[variant],
       colors[color],
-      fontFamilyStyles[fontFamily][fontWeight || defaultFontWeight],
+      fontStyles,
     ]);
 
     return styles;
-  }, [variant, fontFamily, fontWeight]);
+  }, [variant, fontStyles, colors]);
 }
 
 interface TypographyProps
