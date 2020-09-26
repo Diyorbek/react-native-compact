@@ -1,6 +1,11 @@
 import * as React from "react";
 import { StyleSheet, Text, TextProps, TextStyle } from "react-native";
-import { typographyStyles, TypographyVariant } from "./typographyStyles";
+import {
+  typographyStyles,
+  typographyTransformStyles,
+  TypographyTransformVariant,
+  TypographyVariant,
+} from "./typographyStyles";
 import {
   fontFamilyStyles,
   FontFamilyVariant,
@@ -14,6 +19,7 @@ interface UseTypographyStylesProps {
   color?: TypographyColor;
   fontWeight?: FontWeightVariant;
   fontFamily?: FontFamilyVariant;
+  transform?: TypographyTransformVariant;
 }
 
 export function useTypographyStyles({
@@ -21,6 +27,7 @@ export function useTypographyStyles({
   color = "textPrimary",
   fontFamily = "montserrat",
   fontWeight,
+  transform,
 }: UseTypographyStylesProps): TextStyle {
   const isFontsLoaded = useLoadFonts();
   const colors = useTypographyColors();
@@ -44,10 +51,11 @@ export function useTypographyStyles({
       typographyStyles[variant],
       colors[color],
       fontStyles,
+      transform && typographyTransformStyles[transform],
     ]);
 
     return styles;
-  }, [variant, fontStyles, colors]);
+  }, [variant, fontStyles, colors, transform]);
 }
 
 interface TypographyProps

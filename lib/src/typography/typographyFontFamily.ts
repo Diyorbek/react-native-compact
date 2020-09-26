@@ -1,5 +1,4 @@
 import { StyleSheet, TextStyle } from "react-native";
-import { loadAsync } from "expo-font";
 import {
   useFonts,
   Montserrat_400Regular,

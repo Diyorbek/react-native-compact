@@ -60,3 +60,23 @@ export const typographyStyles = StyleSheet.create<TypographyStyles>({
     letterSpacing: 0.35,
   },
 });
+
+export type TypographyTransformVariant =
+  | "capitalize"
+  | "uppercase"
+  | "lowercase";
+type TypographyTransform = Record<TypographyTransformVariant, TextStyle>;
+
+export const typographyTransformStyles = StyleSheet.create<TypographyTransform>(
+  {
+    capitalize: {
+      textTransform: "capitalize",
+    },
+    lowercase: {
+      textTransform: "lowercase",
+    },
+    uppercase: {
+      textTransform: "uppercase",
+    },
+  }
+);
