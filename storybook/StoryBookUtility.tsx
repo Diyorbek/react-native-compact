@@ -1,7 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
 import React, { ReactNode, useEffect } from "react";
 import { View } from "react-native";
-import { Typography } from "../lib/src/typography/Typography";
+import { Typography, TypographyProps } from "../lib/src/typography/Typography";
 import { StoryComponentName } from "./navigation";
 
 export const Box = ({ w, h }: { w: number; h: number }) => (
@@ -29,7 +29,7 @@ export function Presentation({
 }: {
   title?: string;
   children: ReactNode;
-  caption?: string;
+  caption?: ReactNode;
 }) {
   return (
     <View style={{ marginVertical: 10 }}>
@@ -42,18 +42,26 @@ export function Presentation({
           {title}
         </Typography>
       )}
-      <View style={{ marginTop: title && 5, marginBottom: caption && 5 }}>
+      <View
+        style={{
+          marginTop: title ? 5 : undefined,
+          marginBottom: caption ? 5 : undefined,
+        }}
+      >
         {children}
       </View>
-      {caption && (
-        <Typography
-          variant="caption-13"
-          color="placeholder"
-          fontWeight="semiBold"
-        >
-          {caption}
-        </Typography>
-      )}
+      {caption}
     </View>
+  );
+}
+
+export function Caption(props: TypographyProps) {
+  return (
+    <Typography
+      variant="caption-13"
+      color="placeholder"
+      fontWeight="semiBold"
+      {...props}
+    />
   );
 }

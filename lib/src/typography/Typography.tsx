@@ -55,10 +55,10 @@ export function useTypographyStyles({
     ]);
 
     return styles;
-  }, [variant, fontStyles, colors, transform]);
+  }, [variant, fontStyles, color, transform]);
 }
 
-interface TypographyProps
+export interface TypographyProps
   extends React.PropsWithChildren<UseTypographyStylesProps> {
   textProps?: Omit<TextProps, "style">;
 }
