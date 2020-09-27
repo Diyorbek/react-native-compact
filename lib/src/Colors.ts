@@ -1,17 +1,18 @@
+import { ColorValue } from "react-native";
 import { useColorSchemeToggle } from "./utils";
 
 type ColorName = "blue" | "dark" | "red" | "white";
 
 interface ColorShade {
-  [50]?: string;
-  [75]?: string;
-  [80]?: string;
-  [100]?: string;
-  [200]?: string;
-  [250]?: string;
-  [300]?: string;
-  [400]?: string;
-  [500]?: string;
+  [50]?: ColorValue;
+  [75]?: ColorValue;
+  [80]?: ColorValue;
+  [100]?: ColorValue;
+  [200]?: ColorValue;
+  [250]?: ColorValue;
+  [300]?: ColorValue;
+  [400]?: ColorValue;
+  [500]?: ColorValue;
 }
 
 type Palette = Record<ColorName, ColorShade>;
@@ -90,7 +91,7 @@ export const Colors = {
 
 export function useColors(
   options = {
-    toggleColorScheme: false,
+    toggleColorScheme: true,
   }
 ) {
   const colorScheme = useColorSchemeToggle(LightThemeColors, DarkThemeColors);

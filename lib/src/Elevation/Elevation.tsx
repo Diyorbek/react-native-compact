@@ -1,28 +1,30 @@
 import * as React from "react";
 import { View, ViewProps } from "react-native";
 
-import { BorderRaduis } from "./borderRadiusStyles";
-import { ElevationLevel, useElevationStyles } from "./elevationStyles";
+import { UseElevationStyles, useElevationStyles } from "./elevationStyles";
 
 export interface ElevationProps
-  extends Omit<React.PropsWithChildren<ViewProps>, "style"> {
-  elevation?: ElevationLevel;
-  borderRadius?: BorderRaduis;
-}
+  extends Omit<React.PropsWithChildren<ViewProps>, "style">,
+    UseElevationStyles {}
 
 export function Elevation({
+  backgroundColor,
   borderRadius,
-  elevation,
+  level,
   children,
+  ...restProps
 }: ElevationProps) {
   const elevationStyles = useElevationStyles({
+    backgroundColor,
     borderRadius,
-    level: elevation,
+    level,
   });
 
   return (
     <View style={elevationStyles.outer}>
-      <View style={elevationStyles.inner}>{children}</View>
+      <View {...restProps} style={elevationStyles.inner}>
+        {children}
+      </View>
     </View>
   );
 }

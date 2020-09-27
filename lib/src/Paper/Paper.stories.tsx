@@ -1,6 +1,7 @@
 import React from "react";
 import { Text, View } from "react-native";
 import { Box } from "../../../storybook/StoryBookUtility";
+import { Colors } from "../Colors";
 
 import { Paper } from "./Paper";
 

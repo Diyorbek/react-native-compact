@@ -1,8 +1,11 @@
 import * as React from "react";
-import { StyleSheet, View } from "react-native";
+import { View } from "react-native";
 import { Elevation, ElevationProps } from "../elevation/Elevation";
+import { ElevationLevel } from "../elevation/elevationStyles";
 
-interface PaperProps extends ElevationProps {}
+interface PaperProps extends Omit<ElevationProps, "level"> {
+  elevation?: ElevationLevel;
+}
 
 export function Paper({
   children,
@@ -10,19 +13,9 @@ export function Paper({
   borderRadius,
   ...props
 }: PaperProps) {
-  const { root } = React.useMemo(
-    () =>
-      StyleSheet.create({
-        root: {},
-      }),
-    []
-  );
-
   return (
-    <Elevation elevation={elevation} borderRadius={borderRadius}>
-      <View {...props} style={root}>
-        {children}
-      </View>
+    <Elevation level={elevation} borderRadius={borderRadius}>
+      <View {...props}>{children}</View>
     </Elevation>
   );
 }
