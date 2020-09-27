@@ -3,7 +3,7 @@ import { View } from "react-native";
 import { Elevation, ElevationProps } from "../elevation/Elevation";
 import { ElevationLevel } from "../elevation/elevationStyles";
 
-interface PaperProps extends Omit<ElevationProps, "level"> {
+export interface PaperProps extends Omit<ElevationProps, "level"> {
   elevation?: ElevationLevel;
 }
 

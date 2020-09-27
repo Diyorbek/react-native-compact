@@ -4,10 +4,6 @@ import { View } from "react-native";
 import { Typography, TypographyProps } from "../lib/src/typography/Typography";
 import { StoryComponentName } from "./navigation";
 
-export const Box = ({ w, h }: { w: number; h: number }) => (
-  <View style={{ height: h, width: w }} />
-);
-
 export const StoryContainer = ({ children }: any) => (
   <View style={{ flex: 1, padding: 24, backgroundColor: "white" }}>
     {children}

@@ -9,7 +9,7 @@ export interface ElevationProps
 
 export function Elevation({
   backgroundColor,
-  borderRadius,
+  borderRadius = 4,
   level,
   children,
   ...restProps

@@ -15,10 +15,10 @@ type ElevationStyles = Record<ElevationDegree, ElevationStyle>;
 
 export const elevationStyles: ElevationStyles = {
   [0]: StyleSheet.create<ElevationStyle>({
-    inner: {
+    inner: {},
+    outer: {
       borderWidth: 1,
     },
-    outer: {},
   }),
   [1]: StyleSheet.create<ElevationStyle>({
     inner: {
@@ -61,7 +61,8 @@ export const elevationStyles: ElevationStyles = {
     },
   }),
   [5]: StyleSheet.create<ElevationStyle>({
-    inner: {
+    inner: {},
+    outer: {
       shadowColor: "#000",
       shadowOffset: {
         width: 0,
@@ -72,7 +73,6 @@ export const elevationStyles: ElevationStyles = {
       zIndex: 5,
       elevation: 12,
     },
-    outer: {},
   }),
 };
 
@@ -84,13 +84,13 @@ export interface UseElevationStyles {
 
 export function useElevationStyles({
   backgroundColor,
-  borderRadius = 4,
+  borderRadius,
   level,
 }: UseElevationStyles) {
   const Colors = useColors();
 
   return useMemo(() => {
-    const borderRaduisStyle = borderRaduisStyles[borderRadius];
+    const borderRaduisStyle = borderRadius && borderRaduisStyles[borderRadius];
 
     const { inner, outer } =
       level === "ground"

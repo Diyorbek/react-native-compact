@@ -1,7 +1,6 @@
 import React from "react";
 import { Text, View } from "react-native";
-import { Box } from "../../../storybook/StoryBookUtility";
-import { Colors } from "../Colors";
+import { Box } from "../box/Box";
 
 import { Paper } from "./Paper";
 
@@ -21,7 +20,13 @@ export default function PaperStories() {
       }}
     >
       <Text>Paper component</Text>
-      <Box w={24} h={24} />
+      <Box
+        width={24}
+        height={24}
+        elevation="high"
+        marginBottom={3}
+        borderWidth={1}
+      />
       <View
         style={{
           justifyContent: "space-around",
@@ -31,25 +36,25 @@ export default function PaperStories() {
       >
         <Wrapper>
           <Paper>
-            <Box w={100} h={100} />
+            <Box width={100} height={100} />
           </Paper>
         </Wrapper>
 
         <Wrapper>
           <Paper elevation="low">
-            <Box w={100} h={100} />
+            <Box width={100} height={100} />
           </Paper>
         </Wrapper>
 
         <Wrapper>
           <Paper elevation="medium" borderRadius={6}>
-            <Box w={100} h={100} />
+            <Box width={100} height={100} />
           </Paper>
         </Wrapper>
 
         <Wrapper>
           <Paper elevation="high" borderRadius={6}>
-            <Box w={100} h={100} />
+            <Box width={100} height={100} />
           </Paper>
         </Wrapper>
       </View>
