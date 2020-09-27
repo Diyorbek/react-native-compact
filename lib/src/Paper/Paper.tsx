@@ -11,10 +11,15 @@ export function Paper({
   children,
   elevation = "ground",
   borderRadius,
+  backgroundColor,
   ...props
 }: PaperProps) {
   return (
-    <Elevation level={elevation} borderRadius={borderRadius}>
+    <Elevation
+      level={elevation}
+      backgroundColor={backgroundColor}
+      borderRadius={borderRadius}
+    >
       <View {...props}>{children}</View>
     </Elevation>
   );

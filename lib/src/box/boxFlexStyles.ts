@@ -6,14 +6,7 @@ export type InnerFlexStyles = Pick<
   | "alignItems"
   | "flexDirection"
   | "flexWrap"
-  | "height"
   | "justifyContent"
-  | "maxWidth"
-  | "maxHeight"
-  | "minWidth"
-  | "minHeight"
-  | "overflow"
-  | "width"
 >;
 
 export type OuterFlexStyles = Pick<
@@ -25,9 +18,16 @@ export type OuterFlexStyles = Pick<
   | "flexBasis"
   | "flexGrow"
   | "flexShrink"
+  | "height"
   | "left"
+  | "maxWidth"
+  | "maxHeight"
+  | "minWidth"
+  | "minHeight"
+  | "overflow"
   | "position"
   | "right"
   | "start"
   | "top"
+  | "width"
 >;

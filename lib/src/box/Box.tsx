@@ -117,11 +117,18 @@ export function Box({
     flexBasis,
     flexGrow,
     flexShrink,
+    height,
     left,
+    maxWidth,
+    maxHeight,
+    minWidth,
+    minHeight,
+    overflow,
     position,
     right,
     start,
     top,
+    width,
   };
 
   const innerFlexStyles: InnerFlexStyles = {
@@ -129,14 +136,7 @@ export function Box({
     alignItems,
     flexDirection,
     flexWrap,
-    height,
     justifyContent,
-    maxWidth,
-    maxHeight,
-    minWidth,
-    minHeight,
-    overflow,
-    width,
   };
 
   return (

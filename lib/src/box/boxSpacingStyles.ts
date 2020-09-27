@@ -35,7 +35,7 @@ function covertStylesSpacingToUnit(
   const spacingStyles: Record<string, number> = {};
 
   Object.entries(props).forEach(([name, value]) => {
-    if (spacingStyles[name]) {
+    if (value != null) {
       spacingStyles[name] = value * SPACING;
     }
   });

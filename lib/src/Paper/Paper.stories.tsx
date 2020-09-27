@@ -1,13 +1,14 @@
 import React from "react";
 import { Text, View } from "react-native";
 import { Box } from "../box/Box";
+import { Typography } from "../typography/Typography";
 
 import { Paper } from "./Paper";
 
 const Wrapper = (props: any) => (
-  <View style={{ marginTop: 24, width: 100, height: 100 }}>
+  <Box marginTop={6} width={100} height={100}>
     {props.children}
-  </View>
+  </Box>
 );
 
 export default function PaperStories() {
@@ -20,13 +21,7 @@ export default function PaperStories() {
       }}
     >
       <Text>Paper component</Text>
-      <Box
-        width={24}
-        height={24}
-        elevation="high"
-        marginBottom={3}
-        borderWidth={1}
-      />
+
       <View
         style={{
           justifyContent: "space-around",

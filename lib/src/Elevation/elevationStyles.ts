@@ -102,15 +102,15 @@ export function useElevationStyles({
         : elevationStyles[5];
 
     const elevation: ElevationStyle = {
-      inner: StyleSheet.flatten([
-        inner,
+      inner: StyleSheet.flatten([inner, borderRaduisStyle]),
+      outer: StyleSheet.flatten([
+        outer,
         borderRaduisStyle,
         {
           backgroundColor: backgroundColor || Colors.white[100],
           borderColor: Colors.dark[500],
         },
       ]),
-      outer: StyleSheet.flatten([outer, borderRaduisStyle]),
     };
 
     return elevation;
