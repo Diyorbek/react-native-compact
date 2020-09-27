@@ -1,7 +1,27 @@
 import * as React from "react";
 import { StyleSheet, View, ViewProps } from "react-native";
 import { Colors } from "../Colors";
-import { elevationBase } from "./elevationBase";
+import { elevationBase, ElevationStyle } from "./elevationBase";
+
+interface UseElevationStyles {
+  level?: "ground" | "low" | "medium" | "high";
+}
+
+export function useElevationStyles({
+  level,
+}: UseElevationStyles): ElevationStyle {
+  return React.useMemo(
+    () =>
+      level === "ground"
+        ? elevationBase[0]
+        : level === "low"
+        ? elevationBase[1]
+        : level === "medium"
+        ? elevationBase[3]
+        : elevationBase[5],
+    [level]
+  );
+}
 
 export interface ElevationProps
   extends Omit<React.PropsWithChildren<ViewProps>, "style"> {
@@ -22,18 +42,11 @@ export function Elevation({
     [borderRadius]
   );
 
-  const elevationVariant =
-    elevation === "ground"
-      ? elevationBase[0]
-      : elevation === "low"
-      ? elevationBase[1]
-      : elevation === "medium"
-      ? elevationBase[3]
-      : elevationBase[5];
+  const elevationStyles = useElevationStyles({ level: elevation });
 
   return (
-    <View style={StyleSheet.flatten([elevationVariant.outer, root])}>
-      <View style={StyleSheet.flatten([elevationVariant.inner, root])}>
+    <View style={StyleSheet.flatten([elevationStyles.outer, root])}>
+      <View style={StyleSheet.flatten([elevationStyles.inner, root])}>
         {children}
       </View>
     </View>

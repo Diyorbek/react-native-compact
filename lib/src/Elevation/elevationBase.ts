@@ -1,7 +1,7 @@
 import { StyleSheet, ViewStyle } from "react-native";
 import { Colors } from "../Colors";
 
-interface ElevationStyle {
+export interface ElevationStyle {
   inner: ViewStyle;
   outer: ViewStyle;
 }
