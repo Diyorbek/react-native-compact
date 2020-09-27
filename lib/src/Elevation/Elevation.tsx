@@ -1,54 +1,28 @@
 import * as React from "react";
-import { StyleSheet, View, ViewProps } from "react-native";
-import { Colors } from "../Colors";
-import { elevationBase, ElevationStyle } from "./elevationBase";
+import { View, ViewProps } from "react-native";
 
-interface UseElevationStyles {
-  level?: "ground" | "low" | "medium" | "high";
-}
-
-export function useElevationStyles({
-  level,
-}: UseElevationStyles): ElevationStyle {
-  return React.useMemo(
-    () =>
-      level === "ground"
-        ? elevationBase[0]
-        : level === "low"
-        ? elevationBase[1]
-        : level === "medium"
-        ? elevationBase[3]
-        : elevationBase[5],
-    [level]
-  );
-}
+import { BorderRaduis } from "./borderRadiusStyles";
+import { ElevationLevel, useElevationStyles } from "./elevationStyles";
 
 export interface ElevationProps
   extends Omit<React.PropsWithChildren<ViewProps>, "style"> {
-  elevation?: "ground" | "low" | "medium" | "high";
-  borderRadius?: 4 | 6 | 8;
+  elevation?: ElevationLevel;
+  borderRadius?: BorderRaduis;
 }
 
 export function Elevation({
-  borderRadius = 4,
+  borderRadius,
   elevation,
   children,
 }: ElevationProps) {
-  const { root } = React.useMemo(
-    () =>
-      StyleSheet.create({
-        root: { borderRadius, backgroundColor: Colors.Light.white[100] },
-      }),
-    [borderRadius]
-  );
-
-  const elevationStyles = useElevationStyles({ level: elevation });
+  const elevationStyles = useElevationStyles({
+    borderRadius,
+    level: elevation,
+  });
 
   return (
-    <View style={StyleSheet.flatten([elevationStyles.outer, root])}>
-      <View style={StyleSheet.flatten([elevationStyles.inner, root])}>
-        {children}
-      </View>
+    <View style={elevationStyles.outer}>
+      <View style={elevationStyles.inner}>{children}</View>
     </View>
   );
 }

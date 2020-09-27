@@ -1,16 +1,19 @@
+import { useMemo } from "react";
 import { StyleSheet, ViewStyle } from "react-native";
 import { Colors } from "../Colors";
+import { BorderRaduis, borderRaduisStyles } from "./borderRadiusStyles";
 
-export interface ElevationStyle {
+interface ElevationStyle {
   inner: ViewStyle;
   outer: ViewStyle;
 }
 
-type ElevationLevel = 0 | 1 | 3 | 5;
+type ElevationDegree = 0 | 1 | 3 | 5;
+export type ElevationLevel = "ground" | "low" | "medium" | "high";
 
-type ElevationBase = Record<ElevationLevel, ElevationStyle>;
+type ElevationStyles = Record<ElevationDegree, ElevationStyle>;
 
-export const elevationBase: ElevationBase = {
+export const elevationStyles: ElevationStyles = {
   [0]: StyleSheet.create<ElevationStyle>({
     inner: {
       borderWidth: 1,
@@ -74,3 +77,33 @@ export const elevationBase: ElevationBase = {
     outer: {},
   }),
 };
+
+interface UseElevationStyles {
+  level?: ElevationLevel;
+  borderRadius?: BorderRaduis;
+}
+
+export function useElevationStyles({
+  borderRadius = 4,
+  level,
+}: UseElevationStyles) {
+  return useMemo(() => {
+    const borderRaduisStyle = borderRaduisStyles[borderRadius];
+
+    const { inner, outer } =
+      level === "ground"
+        ? elevationStyles[0]
+        : level === "low"
+        ? elevationStyles[1]
+        : level === "medium"
+        ? elevationStyles[3]
+        : elevationStyles[5];
+
+    const elevation: ElevationStyle = {
+      inner: StyleSheet.flatten([inner, borderRaduisStyle]),
+      outer: StyleSheet.flatten([outer, borderRaduisStyle]),
+    };
+
+    return elevation;
+  }, [level]);
+}

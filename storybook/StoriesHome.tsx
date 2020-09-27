@@ -35,7 +35,7 @@ const componentsList: ComponentsList[] = [
 export function StoriesHome({
   navigation,
 }: StackScreenProps<RootStackParamList, "Home">) {
-  useOpenStory("Typography");
+  // useOpenStory("Typography");
   return (
     <View style={styles.container}>
       <ScrollView>
