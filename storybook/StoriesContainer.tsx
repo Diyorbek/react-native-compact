@@ -13,7 +13,7 @@ export function StoriesContainer() {
         <Stack.Screen
           name="Home"
           component={StoriesHome}
-          options={{ headerTitle: "Compact design" }}
+          options={{ headerTitle: "Compac design" }}
         />
         <Stack.Screen name="Button" component={ButtonStories} />
         <Stack.Screen name="Paper" component={PaperStories} />

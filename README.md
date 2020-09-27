@@ -1,3 +1,3 @@
 # react-native-compact
 
-Library of compact components for React Native
+Library of simple components for React Native

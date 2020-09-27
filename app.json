@@ -1,12 +1,10 @@
 {
-  "name": "react-native-compact",
-  "displayName": "react-native-compact",
+  "name": "react-native-compac",
+  "displayName": "react-native-compac",
   "expo": {
-    "name": "react-native-compact",
-    "slug": "react-native-compact",
+    "name": "react-native-compac",
+    "slug": "react-native-compac",
     "version": "1.0.0",
-    "assetBundlePatterns": [
-      "**/*"
-    ]
+    "assetBundlePatterns": ["**/*"]
   }
 }

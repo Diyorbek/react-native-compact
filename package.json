@@ -1,8 +1,4 @@
 {
-  "name": "react-native-compact",
-  "version": "0.0.1",
-  "description": "Library of compact components for React Native",
-  "license": "MIT",
   "private": true,
   "main": "index.js",
   "workspaces": [
