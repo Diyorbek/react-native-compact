@@ -28,7 +28,7 @@ export function StyledBox({
   paperProps: {
     backgroundColor = "transparent",
     borderRadius,
-    elevation = "ground",
+    elevation = 0,
     ...restProps
   },
 }: StyledBoxProps) {

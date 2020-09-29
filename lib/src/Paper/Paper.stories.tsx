@@ -1,58 +1,49 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { ScrollView } from "react-native-gesture-handler";
+import { Presentation } from "../../../storybook/StoryBookUtility";
 import { Box } from "../box/Box";
 import { Typography } from "../typography/Typography";
 
 import { Paper } from "./Paper";
 
-const Wrapper = (props: any) => (
-  <Box marginTop={6} width={100} height={100}>
-    {props.children}
-  </Box>
-);
-
 export default function PaperStories() {
   return (
-    <View
-      style={{
-        flex: 1,
-        padding: 24,
-        backgroundColor: "white",
-      }}
-    >
-      <Text>Paper component</Text>
+    <Box flex={1} backgroundColor="white">
+      <ScrollView>
+        <Box paddingTop={6} paddingHorizontal={8}>
+          <Typography variant="title">Paper component</Typography>
 
-      <View
-        style={{
-          justifyContent: "space-around",
-          flexDirection: "row",
-          flexWrap: "wrap",
-        }}
-      >
-        <Wrapper>
-          <Paper>
-            <Box width={100} height={100} />
-          </Paper>
-        </Wrapper>
+          <Box
+            maxWidth={300}
+            justifyContent="space-around"
+            flexDirection="column"
+          >
+            <Presentation caption='variant="outline"'>
+              <Paper variant="outline">
+                <Box width={100} height={100} />
+              </Paper>
+            </Presentation>
 
-        <Wrapper>
-          <Paper elevation="low">
-            <Box width={100} height={100} />
-          </Paper>
-        </Wrapper>
+            <Presentation caption="elevation={1}">
+              <Paper elevation={1}>
+                <Box width={100} height={100} />
+              </Paper>
+            </Presentation>
 
-        <Wrapper>
-          <Paper elevation="medium" borderRadius={6}>
-            <Box width={100} height={100} />
-          </Paper>
-        </Wrapper>
+            <Presentation caption="elevation={3}">
+              <Paper elevation={3} borderRadius={6}>
+                <Box width={100} height={100} />
+              </Paper>
+            </Presentation>
 
-        <Wrapper>
-          <Paper elevation="high" borderRadius={6}>
-            <Box width={100} height={100} />
-          </Paper>
-        </Wrapper>
-      </View>
-    </View>
+            <Presentation caption="elevation={5}">
+              <Paper elevation={5} borderRadius={6}>
+                <Box width={100} height={100} />
+              </Paper>
+            </Presentation>
+          </Box>
+        </Box>
+      </ScrollView>
+    </Box>
   );
 }

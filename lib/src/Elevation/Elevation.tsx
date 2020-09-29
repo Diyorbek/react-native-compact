@@ -9,15 +9,17 @@ export interface ElevationProps
 
 export function Elevation({
   backgroundColor,
-  borderRadius = 4,
+  borderRadius,
   level,
   children,
+  outline,
   ...restProps
 }: ElevationProps) {
   const elevationStyles = useElevationStyles({
     backgroundColor,
     borderRadius,
     level,
+    outline,
   });
 
   return (

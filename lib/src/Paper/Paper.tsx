@@ -5,20 +5,25 @@ import { ElevationLevel } from "../elevation/elevationStyles";
 
 export interface PaperProps extends Omit<ElevationProps, "level"> {
   elevation?: ElevationLevel;
+  variant?: "elevation" | "outline";
+  square?: boolean;
 }
 
 export function Paper({
   children,
-  elevation = "ground",
-  borderRadius,
+  elevation = 1,
+  borderRadius = 4,
   backgroundColor,
+  square,
+  variant = "elevation",
   ...props
 }: PaperProps) {
   return (
     <Elevation
-      level={elevation}
+      level={variant === "elevation" ? elevation : undefined}
       backgroundColor={backgroundColor}
-      borderRadius={borderRadius}
+      borderRadius={square ? undefined : borderRadius}
+      outline={variant === "outline"}
     >
       <View {...props}>{children}</View>
     </Elevation>

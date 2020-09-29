@@ -40,13 +40,13 @@ export function Presentation({
       )}
       <View
         style={{
-          marginTop: title ? 5 : undefined,
-          marginBottom: caption ? 5 : undefined,
+          marginTop: title ? 8 : undefined,
+          marginBottom: caption ? 8 : undefined,
         }}
       >
         {children}
       </View>
-      {caption}
+      {typeof caption === "string" ? <Caption>{caption}</Caption> : caption}
     </View>
   );
 }

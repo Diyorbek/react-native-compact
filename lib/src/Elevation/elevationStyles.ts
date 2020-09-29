@@ -8,17 +8,14 @@ interface ElevationStyle {
   outer: ViewStyle;
 }
 
-type ElevationDegree = 0 | 1 | 3 | 5;
-export type ElevationLevel = "ground" | "low" | "medium" | "high";
+export type ElevationLevel = 0 | 1 | 3 | 5;
 
-type ElevationStyles = Record<ElevationDegree, ElevationStyle>;
+type ElevationStyles = Record<ElevationLevel, ElevationStyle>;
 
 export const elevationStyles: ElevationStyles = {
   [0]: StyleSheet.create<ElevationStyle>({
     inner: {},
-    outer: {
-      borderWidth: 1,
-    },
+    outer: {},
   }),
   [1]: StyleSheet.create<ElevationStyle>({
     inner: {
@@ -80,24 +77,27 @@ export interface UseElevationStyles {
   level?: ElevationLevel;
   borderRadius?: BorderRaduis;
   backgroundColor?: ColorValue;
+  outline?: boolean;
 }
 
 export function useElevationStyles({
   backgroundColor,
   borderRadius,
-  level,
+  level = 0,
+  outline,
 }: UseElevationStyles) {
   const Colors = useColors();
 
   return useMemo(() => {
     const borderRaduisStyle = borderRadius && borderRaduisStyles[borderRadius];
+    console.log(level);
 
     const { inner, outer } =
-      level === "ground"
+      level === 0
         ? elevationStyles[0]
-        : level === "low"
+        : level === 1
         ? elevationStyles[1]
-        : level === "medium"
+        : level === 3
         ? elevationStyles[3]
         : elevationStyles[5];
 
@@ -106,13 +106,14 @@ export function useElevationStyles({
       outer: StyleSheet.flatten([
         outer,
         borderRaduisStyle,
-        {
-          backgroundColor: backgroundColor || Colors.white[100],
+        { backgroundColor: backgroundColor || Colors.white[100] },
+        outline && {
           borderColor: Colors.dark[500],
+          borderWidth: 1,
         },
       ]),
     };
 
     return elevation;
-  }, [backgroundColor, borderRadius, level]);
+  }, [backgroundColor, borderRadius, level, outline]);
 }
