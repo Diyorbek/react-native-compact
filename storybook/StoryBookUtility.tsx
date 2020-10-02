@@ -23,21 +23,13 @@ export function Presentation({
   caption,
   children,
 }: {
-  title?: string;
+  title?: ReactNode;
   children: ReactNode;
   caption?: ReactNode;
 }) {
   return (
     <View style={{ marginVertical: 10 }}>
-      {title && (
-        <Typography
-          variant="caption-13"
-          color="textSecondary"
-          fontWeight="semiBold"
-        >
-          {title}
-        </Typography>
-      )}
+      {typeof title === "string" ? <Caption>{title}</Caption> : title}
       <View
         style={{
           marginTop: title ? 8 : undefined,

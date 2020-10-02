@@ -1,6 +1,6 @@
 import { useNavigation } from "@react-navigation/native";
 import { StackScreenProps } from "@react-navigation/stack";
-import React, { useEffect } from "react";
+import React from "react";
 import {
   ScrollView,
   StyleSheet,
@@ -27,6 +27,10 @@ const componentsList: ComponentsList[] = [
     label: "Paper",
   },
   {
+    routeName: "TextField",
+    label: "TextField",
+  },
+  {
     routeName: "Typography",
     label: "Typography",
   },
@@ -35,7 +39,7 @@ const componentsList: ComponentsList[] = [
 export function StoriesHome({
   navigation,
 }: StackScreenProps<RootStackParamList, "Home">) {
-  useOpenStory("Paper");
+  useOpenStory("TextField");
   return (
     <View style={styles.container}>
       <ScrollView>
