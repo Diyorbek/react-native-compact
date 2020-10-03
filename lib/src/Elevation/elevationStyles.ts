@@ -90,16 +90,15 @@ export function useElevationStyles({
 
   return useMemo(() => {
     const borderRaduisStyle = borderRadius && borderRaduisStyles[borderRadius];
-    console.log(level);
 
     const { inner, outer } =
-      level === 0
-        ? elevationStyles[0]
-        : level === 1
-        ? elevationStyles[1]
+      level === 5
+        ? elevationStyles[5]
         : level === 3
         ? elevationStyles[3]
-        : elevationStyles[5];
+        : level === 1
+        ? elevationStyles[1]
+        : elevationStyles[0];
 
     const elevation: ElevationStyle = {
       inner: StyleSheet.flatten([inner, borderRaduisStyle]),

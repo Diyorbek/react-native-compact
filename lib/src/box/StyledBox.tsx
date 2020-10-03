@@ -45,7 +45,7 @@ export function StyledBox({
   }, [outerFlexStyles]);
 
   const { flexBox } = React.useMemo(() => {
-    return StyleSheet.create({ flexBox: innerFlexStyles });
+    return StyleSheet.create({ flexBox: { ...innerFlexStyles, flex: 1 } });
   }, [innerFlexStyles]);
 
   const outerStyles = React.useMemo(
