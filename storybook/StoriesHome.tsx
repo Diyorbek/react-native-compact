@@ -39,7 +39,7 @@ const componentsList: ComponentsList[] = [
 export function StoriesHome({
   navigation,
 }: StackScreenProps<RootStackParamList, "Home">) {
-  useOpenStory("TextField");
+  useOpenStory("Paper");
   return (
     <View style={styles.container}>
       <ScrollView>

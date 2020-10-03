@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { ColorValue, StyleSheet, ViewStyle } from "react-native";
+import { ColorValue, Platform, StyleSheet, ViewStyle } from "react-native";
 import { useColors } from "../Colors";
 import { BorderRaduis, borderRaduisStyles } from "./borderRadiusStyles";
 
@@ -90,6 +90,9 @@ export function useElevationStyles({
 
   return useMemo(() => {
     const borderRaduisStyle = borderRadius && borderRaduisStyles[borderRadius];
+    const backgroundColorStyle = {
+      backgroundColor: backgroundColor || Colors.white[100],
+    } as ViewStyle;
 
     const { inner, outer } =
       level === 5
@@ -101,11 +104,15 @@ export function useElevationStyles({
         : elevationStyles[0];
 
     const elevation: ElevationStyle = {
-      inner: StyleSheet.flatten([inner, borderRaduisStyle]),
+      inner: StyleSheet.flatten([
+        inner,
+        borderRaduisStyle,
+        Platform.OS === "ios" ? backgroundColorStyle : undefined,
+      ]),
       outer: StyleSheet.flatten([
         outer,
         borderRaduisStyle,
-        { backgroundColor: backgroundColor || Colors.white[100] },
+        backgroundColorStyle,
         outline && {
           borderColor: Colors.dark[500],
           borderWidth: 1,
