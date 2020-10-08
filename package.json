@@ -19,8 +19,7 @@
     "test": "jest",
     "build": "cd src && tsc",
     "prepublishOnly": "yarn build",
-    "postversion": "git push --tags && git push",
-    "release": "cd lib && yarn publish"
+    "postversion": "git push --tags && git push"
   },
   "dependencies": {
     "@expo-google-fonts/montserrat": "^0.1.0",
