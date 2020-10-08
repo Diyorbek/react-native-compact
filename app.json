@@ -2,6 +2,7 @@
   "name": "react-native-compac",
   "displayName": "react-native-compac",
   "expo": {
+    "entryPoint": "index.js",
     "name": "react-native-compac",
     "slug": "react-native-compac",
     "version": "1.0.0",

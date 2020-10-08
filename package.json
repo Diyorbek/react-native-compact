@@ -1,16 +1,26 @@
 {
-  "private": true,
-  "main": "index.js",
-  "workspaces": [
-    "lib"
+  "name": "react-native-compac",
+  "version": "0.0.23",
+  "main": "dist/index.js",
+  "react-native": "index.js",
+  "author": "Diyorbek Sadullaev",
+  "description": "Library of simple components for React Native",
+  "license": "MIT",
+  "private": false,
+  "files": [
+    "dist"
   ],
   "scripts": {
-    "release": "cd lib && yarn publish",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "web": "expo start --web",
     "start": "react-native start",
-    "test": "jest"
+    "typecheck": "tsc",
+    "test": "jest",
+    "build": "cd src && tsc",
+    "prepublishOnly": "yarn build",
+    "postversion": "git push --tags && git push",
+    "release": "cd lib && yarn publish"
   },
   "dependencies": {
     "@expo-google-fonts/montserrat": "^0.1.0",
@@ -25,11 +35,21 @@
     "react-dom": "^16.11.0",
     "react-native": "^0.62.2",
     "react-native-gesture-handler": "~1.6.0",
+    "react-native-paper": "^4.2.0",
     "react-native-reanimated": "~1.9.0",
     "react-native-safe-area-context": "~3.0.7",
     "react-native-screens": "~2.9.0",
     "react-native-unimodules": "^0.10.1",
     "react-native-web": "^0.13.12"
+  },
+  "peerDependencies": {
+    "@expo-google-fonts/montserrat": "^0.1.0",
+    "@expo-google-fonts/open-sans": "^0.1.0",
+    "expo": "^38.0.10",
+    "expo-font": "^8.2.0",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
+    "react-native": "^0.62.2"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",

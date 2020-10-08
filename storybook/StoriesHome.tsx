@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import { Colors } from "../lib/src/Colors";
+import { Colors } from "../src/Colors";
 import { RootStackParamList, StoryComponentName } from "./navigation";
 import { useOpenStory } from "./StoryBookUtility";
 
