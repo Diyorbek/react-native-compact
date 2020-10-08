@@ -4,6 +4,7 @@
   "main": "dist/index.js",
   "author": "Diyorbek Sadullaev",
   "description": "Library of simple components for React Native",
+  "repository": "git@github.com:Diyorbek/react-native-compact.git",
   "license": "MIT",
   "private": false,
   "files": [
