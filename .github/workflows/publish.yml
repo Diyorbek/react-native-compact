@@ -35,7 +35,6 @@ jobs:
           expo-username: ${{ secrets.EXPO_USERNAME }}
           expo-password: ${{ secrets.EXPO_PASSWORD }}
           expo-cache: true
-        run: expo publish 
           
       - name: Release
         if: ${{ startsWith(github.ref, 'refs/tags/') }}
