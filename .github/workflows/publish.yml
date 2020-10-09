@@ -22,11 +22,20 @@ jobs:
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Publish
+      - name: Publish to NPM
         if: ${{ startsWith(github.ref, 'refs/tags/') }}
         run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
+
+      - name: Publish to Expo
+        uses: expo/expo-github-action@v5
+        with:
+          expo-version: 3.x
+          expo-username: ${{ secrets.EXPO_USERNAME }}
+          expo-password: ${{ secrets.EXPO_PASSWORD }}
+          expo-cache: true
+        run: expo publish 
           
       - name: Release
         if: ${{ startsWith(github.ref, 'refs/tags/') }}

@@ -6,6 +6,9 @@
     "name": "react-native-compac",
     "slug": "react-native-compac",
     "version": "1.0.0",
-    "assetBundlePatterns": ["**/*"]
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "description": "Library of simple components for React Native"
   }
 }
